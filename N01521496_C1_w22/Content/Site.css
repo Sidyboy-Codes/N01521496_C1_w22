@@ -1,0 +1,102 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;300;400;500;600;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Sora', sans-serif;
+}
+
+a {
+    all: unset;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    margin-bottom: 2rem;
+}
+
+nav {
+    padding: 1rem 0;
+    background-color: black;
+    color: white;
+    border-radius: 0px 0px 80px 80px;
+    text-align: center;
+}
+
+.logo {
+    font-size: 2rem;
+}
+
+    .logo:hover {
+        text-decoration: none;
+        color: rgb(56, 56, 56);
+        cursor: pointer;
+    }
+
+main {
+    text-align: center;
+}
+
+form {
+    margin-bottom: 4rem;
+}
+
+#searchDiv {
+    display: inline-block;
+    border: 0.2rem solid black;
+    border-radius: 6px;
+    padding: 0.4rem;
+    text-align: left;
+}
+
+    #searchDiv input, button {
+        all: unset;
+    }
+
+    #searchDiv button {
+        border-left: 2px solid black;
+        padding: 0 4px;
+    }
+
+        #searchDiv button:hover {
+            text-decoration: none;
+            cursor: pointer;
+            color: orange;
+            transform: scale(1.2);
+        }
+
+#listOfTeachers {
+    display: flex;
+    flex-direction: column;
+}
+
+    #listOfTeachers p {
+        margin-bottom: 2rem;
+        font-size: 0.6rem;
+    }
+
+    #listOfTeachers a {
+        margin: 0.5rem 0;
+        font-size: 1.6rem;
+    }
+
+        #listOfTeachers a:hover {
+            text-decoration: none;
+            color: darkorange;
+            cursor: pointer;
+        }
+
+#teacherDetails {
+    display: inline-block;
+    text-align: left;
+    margin: 0 auto;
+}
+
+    #teacherDetails p {
+        font-size: 2rem;
+    }

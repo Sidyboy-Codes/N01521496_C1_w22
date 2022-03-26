@@ -1,0 +1,25 @@
+﻿@model List<N01521496_C1_w22.Models.TeacherObject>
+@{
+    ViewBag.Title = "List";
+}
+
+<main>
+    <form method="get" action="/TeacherDisplay/List">
+        <div id="searchDiv">
+            <input type="text" id="search" name="searchKey" placeholder="search teacher" required />
+            <button type="submit">Search</button>
+        </div>
+    </form>
+
+    <p>Note: Click for more details</p>
+    <div id="listOfTeachers">
+        @{
+            foreach (N01521496_C1_w22.Models.TeacherObject teacher in Model)
+            {
+                <a href="/TeacherDisplay/Show/@teacher.TeacherId">@teacher.TeacherFname @teacher.TeacherLname</a>
+            }
+        }
+
+    </div>
+</main>
+

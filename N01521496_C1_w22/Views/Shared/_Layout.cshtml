@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher List</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <header>
+        <nav>
+            <span>
+                @Html.ActionLink("Teacher List","List","TeacherDisplay", null , new { @class = "logo"})
+            </span>
+        </nav>
+    </header>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer style="text-align:center">
+            <p>&copy; By Siddhant Patel N01521496</p>
+        </footer>
+    </div>
+</body>
+</html>
