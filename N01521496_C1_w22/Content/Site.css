@@ -100,3 +100,52 @@ form {
     #teacherDetails p {
         font-size: 2rem;
     }
+
+    /* ********** CSS for C2 ******************** */
+.deleteT {
+    all:unset;
+    background-color: red;
+    padding: 0.4rem 0.8rem;
+    border-radius: 10px;
+    color: white;
+    cursor:pointer;
+}
+
+#addTeacher #addTBtn {
+    all: unset;
+    padding: 0.6rem 0.8rem;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+    #addTeacher #addTBtn:hover {
+        cursor: pointer;
+        background-color: red;
+        color: white;
+    }
+
+#newTeacherForm {
+    width: 25%;
+    margin: 2rem auto;
+    /* background-color: bisque; */
+}
+
+    #newTeacherForm div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 0.8rem;
+    }
+
+
+
+    #newTeacherForm button {
+        all: unset;
+        padding: 0.2rem 1rem;
+        border-radius: 10px;
+        border: 2px solid black;
+        cursor: pointer;
+        background-color: red;
+        color: white;
+        width: 20%;
+        margin: 0 auto;
+    }

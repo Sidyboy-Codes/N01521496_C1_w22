@@ -13,7 +13,7 @@ namespace N01521496_C1_w22.Models
         private static string Password { get { return "root"; } }
         private static string Database { get { return "schoolDB"; } }
         private static string Server { get { return "localhost"; } }
-        private static string Port { get { return "3306"; } }
+        private static string Port { get { return "8889"; } }
 
 
         // ConnectionSting is a single string with all credential which are need for database connection

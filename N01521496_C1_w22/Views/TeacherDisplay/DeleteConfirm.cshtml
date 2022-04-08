@@ -1,0 +1,12 @@
+﻿@model N01521496_C1_w22.Models.TeacherObject
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>Are you sure you want to delete following author</h2>
+<h4>Full Name: @Model.TeacherFname @Model.TeacherLname</h4>
+<h4>Employee No.: @Model.EmployeeNumber</h4>
+<form method="post" action="/TeacherDisplay/Delete/@Model.TeacherId">
+    <button type="submit" class="deleteT">Yes Delete</button>
+</form>
+

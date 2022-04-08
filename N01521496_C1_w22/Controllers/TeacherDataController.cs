@@ -2,6 +2,7 @@
 using N01521496_C1_w22.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -144,6 +145,77 @@ namespace N01521496_C1_w22.Controllers
 
             return TeacherInfo;
         }
+        
+        /// <summary>
+        /// This will delete teacher with given id from database
+        /// </summary>
+        /// <param name="id"></param>
+        public void DeleteTeacher(int id)
+        {
+            // creating an instance of a connection
+            MySqlConnection Conn = School.AccessDatabase();
 
+            // opening connection
+            Conn.Open();
+
+            // creating command which will be used to create query
+            MySqlCommand cmd = Conn.CreateCommand();
+
+            Debug.WriteLine("teacher is is " + id);
+
+            // "DELETE t1, c1 FROM teachers t1 INNER JOIN classes c1 ON t1.teacherid = c1.teacherid WHERE t1.teacherid = @key;" + 
+            // query
+            string query = "DELETE t1, c1 FROM teachers t1 INNER JOIN classes c1 ON t1.teacherid = c1.teacherid WHERE t1.teacherid = @key;";
+
+
+            // deleting a teacher will also remove all classes that selected teacher teaches 
+            cmd.CommandText = query;
+            cmd.Parameters.AddWithValue("@key", id);
+            cmd.Prepare();
+
+            cmd.ExecuteNonQuery();
+
+            // if a teacher do not have any classes 1st query will not run as there will be no t1.teacherid = c1.teacherid so inner join will not work
+            string query2 = "DELETE FROM teachers WHERE teacherid = @key2;";
+            cmd.CommandText = query2;
+            cmd.Parameters.AddWithValue("@key2", id);
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
+            
+            Conn.Close();
+
+        }
+
+
+        /// <summary>
+        /// this method adds new author to database 
+        /// </summary>
+        /// <param name="newTeacher"></param>
+        public void AddTeacher(TeacherObject newTeacher)
+        {
+            // creating an instance of a connection
+            MySqlConnection Conn = School.AccessDatabase();
+
+            // opening connection
+            Conn.Open();
+
+            // creating command which will be used to create query
+            MySqlCommand cmd = Conn.CreateCommand();
+
+            string query = "insert into teachers (teacherfname,teacherlname,employeenumber,hiredate,salary) values (@tFname,@tLname,@empNum,CURRENT_DATE(),@tSalary)";
+            cmd.CommandText = query;
+            cmd.Parameters.AddWithValue("@tFname", newTeacher.TeacherFname);
+            cmd.Parameters.AddWithValue("@tLname", newTeacher.TeacherLname);
+            cmd.Parameters.AddWithValue("@empNum", newTeacher.EmployeeNumber);
+            cmd.Parameters.AddWithValue("@tSalary", newTeacher.Salary);
+
+            cmd.Prepare();
+
+            cmd.ExecuteNonQuery();
+            Conn.Close();
+
+
+
+        }
     }
 }
