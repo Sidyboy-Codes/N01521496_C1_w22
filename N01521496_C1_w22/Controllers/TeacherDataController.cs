@@ -146,6 +146,7 @@ namespace N01521496_C1_w22.Controllers
             return TeacherInfo;
         }
         
+        // ================xxxxxx=xxxxx===== Delete function =============x==========x============x=======x
         /// <summary>
         /// This will delete teacher with given id from database
         /// </summary>
@@ -186,7 +187,7 @@ namespace N01521496_C1_w22.Controllers
 
         }
 
-
+        // =============x==============x==========x== Add new teacher ================x==========x=======x=======x
         /// <summary>
         /// this method adds new author to database 
         /// </summary>
