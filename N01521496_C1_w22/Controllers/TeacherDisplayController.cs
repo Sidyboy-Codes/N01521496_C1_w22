@@ -103,7 +103,7 @@ namespace N01521496_C1_w22.Controllers
         /// <summary>
         /// This will return a page where user can edit exsisting teacher data
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">teacher id on which update is needed to be applied</param>
         /// <returns></returns>
         public ActionResult Edit(int id)
         {
@@ -117,6 +117,7 @@ namespace N01521496_C1_w22.Controllers
         // POST: /TeacherDisplay/Update/{id}
         /// <summary>
         /// this will be called when actual edit button is clicked to save edited info
+        /// it will redirect to "Show"
         /// </summary>
         /// <param name="id"></param>
         /// <param name="f_name"></param>
@@ -127,6 +128,7 @@ namespace N01521496_C1_w22.Controllers
         [HttpPost]
         public ActionResult Update(int id, string f_name, string l_name, string empNum, double salary)
         {
+            // storing new incoming data to teacher object
             TeacherObject teacherInfo = new TeacherObject();
             teacherInfo.TeacherFname = f_name;
             teacherInfo.TeacherLname = l_name;

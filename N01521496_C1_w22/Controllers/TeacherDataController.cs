@@ -220,6 +220,12 @@ namespace N01521496_C1_w22.Controllers
         }
 
         // ==x=======x===========x==========x====== Update teacher ====x=x==========x===============x============x
+
+        /// <summary>
+        /// This method will update teacher information in database using sql update query 
+        /// </summary>
+        /// <param name="teacherId">Id on which update is needed to be applied</param>
+        /// <param name="teacherInfo">teacher object will have all updated values from "edit form"</param>
         public void UpdateTeacher(int teacherId, TeacherObject teacherInfo)
         {
             MySqlConnection Conn = School.AccessDatabase();
