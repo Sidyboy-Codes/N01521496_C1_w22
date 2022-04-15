@@ -1,42 +1,45 @@
-﻿
+﻿@model N01521496_C1_w22.Models.TeacherObject
 @{
-    ViewBag.Title = "New";
+    ViewBag.Title = "Edit";
 }
 
-<h2>Add Teacher's details</h2>
-<form id="newTeacherForm" method="post" action="/TeacherDisplay/Create">
+<h2>Edit Teacher's details</h2>
+<form id="editTeacherForm" method="post" action="/TeacherDisplay/Update/@Model.TeacherId">
     <div>
         <label for="f_name">First Name:</label>
-        <input type="text" name="f_name" id="f_name">
+        <input type="text" name="f_name" id="f_name" value=@Model.TeacherFname>
     </div>
 
     <div>
         <label for="l_name">Last name:</label>
-        <input type="text" name="l_name" id="l_name">
+        <input type="text" name="l_name" id="l_name" value=@Model.TeacherLname>
     </div>
 
     <div>
         <label for="empNum">Employee Number:</label>
-        <input type="text" name="empNum" id="empNum">
+        <input type="text" name="empNum" id="empNum" value=@Model.EmployeeNumber>
     </div>
 
 
     <div>
         <label for="salary">Salary:</label>
-        <input type="number" name="salary" id="salary">
+        <input type="number" name="salary" id="salary" value=@Model.Salary>
     </div>
     <div>
-        <button type="submit">Add</button>
+        <button type="submit" class="deleteT">Update</button>
     </div>
 </form>
 
     <script type="text/javascript">
-        var formHandle = document.forms.newTeacherForm
-        formHandle.onsubmit = function () {
-            var f_name = formHandle.f_name;
-            var l_name = formHandle.l_name;
-            var empNum = formHandle.empNum;
-            var salary = formHandle.salary;
+        var updateFormHandle = document.forms.editTeacherForm;
+
+
+        updateFormHandle.onsubmit = function () {
+            console.log("processUpdateForm is called")
+            var f_name = updateFormHandle.f_name;
+            var l_name = updateFormHandle.l_name;
+            var empNum = updateFormHandle.empNum;
+            var salary = updateFormHandle.salary;
 
             if (!f_name.value || f_name.value.trim() === "") {
                 console.log("error in fname");
@@ -75,4 +78,3 @@
 
         }
     </script>
-    

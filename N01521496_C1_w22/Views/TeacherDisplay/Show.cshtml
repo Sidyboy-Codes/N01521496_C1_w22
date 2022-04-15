@@ -9,8 +9,13 @@
     <p>Employee No.: @Model.EmployeeNumber</p>
     <p>Hire Date: @Model.HireDate</p>
     <p>Salary: @Model.Salary</p>
-    <form action="/TeacherDisplay/DeleteConfirm/@Model.TeacherId" method="get">
-        <button type="submit" class="deleteT">Delete</button>
-    </form>
+    <div class="forms_on_show">
+        <form action="/TeacherDisplay/DeleteConfirm/@Model.TeacherId" method="get">
+            <button type="submit" class="deleteT">Delete</button>
+        </form>
+        <form action="/TeacherDisplay/Edit/@Model.TeacherId" method="get">
+            <button type="submit" class="deleteT">Edit</button>
+        </form>
+    </div>
 </section>
 

@@ -97,5 +97,46 @@ namespace N01521496_C1_w22.Controllers
             controller.AddTeacher(newTeacher);
             return RedirectToAction("List");
         }
+
+        // GET: TeacherDisplay/Edit
+        // this will show edit page to user with teacher of selected id
+        /// <summary>
+        /// This will return a page where user can edit exsisting teacher data
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult Edit(int id)
+        {
+            // accessing data layer
+            TeacherDataController controller = new TeacherDataController();
+            // getting single teacher
+            TeacherObject currentTeacher = controller.FindOne(id);
+            return View(currentTeacher);
+        }
+
+        // POST: /TeacherDisplay/Update/{id}
+        /// <summary>
+        /// this will be called when actual edit button is clicked to save edited info
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="f_name"></param>
+        /// <param name="l_name"></param>
+        /// <param name="empNum"></param>
+        /// <param name="salary"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Update(int id, string f_name, string l_name, string empNum, double salary)
+        {
+            TeacherObject teacherInfo = new TeacherObject();
+            teacherInfo.TeacherFname = f_name;
+            teacherInfo.TeacherLname = l_name;
+            teacherInfo.EmployeeNumber = empNum;
+            teacherInfo.Salary = salary;
+
+            // sending data and processing it using TeacherDataController
+            TeacherDataController controller = new TeacherDataController();
+            controller.UpdateTeacher(id, teacherInfo);
+            return RedirectToAction("Show/" + id);
+        }
     }
 }

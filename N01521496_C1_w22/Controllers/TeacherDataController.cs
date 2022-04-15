@@ -218,5 +218,31 @@ namespace N01521496_C1_w22.Controllers
 
 
         }
+
+        // ==x=======x===========x==========x====== Update teacher ====x=x==========x===============x============x
+        public void UpdateTeacher(int teacherId, TeacherObject teacherInfo)
+        {
+            MySqlConnection Conn = School.AccessDatabase();
+
+            Conn.Open();
+
+            MySqlCommand cmd = Conn.CreateCommand();
+
+            string query = "update teachers set teacherfname=@t_fname, teacherlname=@t_lname, employeenumber=@t_empNum, salary=@t_salary WHERE teacherid=@t_id";
+            cmd.CommandText = query;
+            cmd.Parameters.AddWithValue("@t_fname", teacherInfo.TeacherFname);
+            cmd.Parameters.AddWithValue("@t_lname", teacherInfo.TeacherLname);
+            cmd.Parameters.AddWithValue("@t_empNum", teacherInfo.EmployeeNumber);
+            cmd.Parameters.AddWithValue("@t_salary", teacherInfo.Salary);
+            cmd.Parameters.AddWithValue("@t_id", teacherId);
+
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
+
+
+            Conn.Close();
+
+
+        }
     }
 }

@@ -149,3 +149,8 @@ form {
         width: 20%;
         margin: 0 auto;
     }
+
+.forms_on_show{
+    display:flex;
+    gap: 1rem;
+}
